@@ -3,12 +3,9 @@ import Box from "@mui/material/Box";
 import { CardActionArea, colors, Divider, SvgIcon } from "@mui/material";
 import theme from "../../theme/Theme";
 import InfoCard from "../cards/InfoCard";
-import CropSquareRoundedIcon from "@mui/icons-material/CropSquareRounded";
-import PieChartRoundedIcon from "@mui/icons-material/PieChartRounded";
-import SavingsRoundedIcon from "@mui/icons-material/SavingsRounded";
-import PaymentsRoundedIcon from "@mui/icons-material/PaymentsRounded";
 import MenuComponent from "../menu/Menu";
 import { grey } from "@mui/material/colors";
+import { DollarBillIcon, PieChartIcon, PlaceholderIcon, SavingsIcon } from "modules/icons/Icons";
 
 interface SummaryItem {
   icon?: typeof SvgIcon;
@@ -25,19 +22,19 @@ const cummulativeSummary: SummaryItem = {
 
 const summary: Array<SummaryItem> = [
   {
-    icon: PaymentsRoundedIcon,
+    icon: DollarBillIcon,
     value: 10000,
     growthPercentage: 10,
     name: "Cash",
   },
   {
-    icon: PieChartRoundedIcon,
+    icon: PieChartIcon,
     value: 11100.23,
     growthPercentage: -22,
     name: "Portfolio",
   },
   {
-    icon: SavingsRoundedIcon,
+    icon: SavingsIcon,
     value: 11100.23,
     growthPercentage: 0,
     name: "Savings",
@@ -108,7 +105,7 @@ const SummaryComponent = () => {
               }}
             >
               <SvgIcon
-                component={element.icon ? element.icon : CropSquareRoundedIcon}
+                component={element.icon ? element.icon : PlaceholderIcon}
                 sx={{ color: theme.palette.primary.main }}
               />
               <InfoCard

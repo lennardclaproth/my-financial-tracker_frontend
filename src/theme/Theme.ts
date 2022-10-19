@@ -1,8 +1,41 @@
+import { grey } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 import selectionPalette from "./SelectionPalette";
 
 const theme = createTheme({
+  typography:{
+    fontFamily: ['Roboto','sans-serif'].join(','),
+    fontWeightRegular: "500",
+    fontSize: 14,
+    h3:{
+        fontFamily: ['Tiempos Headline'].join(','),
+        color: grey[800]
+        // fontWeight: "100"
+    },
+    h4:{
+        fontFamily: ['Tiempos Headline'].join(','),
+        color: grey[800]
+        // fontWeight: "100"
+    },
+    h5:{
+        fontFamily: ['Tiempos Headline'].join(','),
+        fontWeight: "400",
+        fontSize: "1.5rem",
+        color: grey[800]
+    },
+    h6:{
+        fontFamily: ['Tiempos Headline'].join(','),
+        fontWeight: "200",
+        fontSize: "1rem"
+    },
+    // subtitle1: {
+    //     fontFamily: ['Roboto'].join(',')
+    // }
+  },
   palette: {
+    text: {
+        primary: grey[700]
+    },
     primary: {
     //   main: "#90a955",
       dark: "#132a13",

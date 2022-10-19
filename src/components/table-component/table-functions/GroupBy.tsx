@@ -2,18 +2,10 @@
 import * as React from "react";
 import {
   Grid,
-  IconButton,
-  InputAdornment,
   Switch,
-  TextField,
   Typography,
 } from "@mui/material";
 import theme from "../../../theme/Theme";
-import MenuComponent from "../../menu/Menu";
-import HorizontalRuleRoundedIcon from "@mui/icons-material/HorizontalRuleRounded";
-import KeyboardDoubleArrowUpRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowUpRounded";
-import KeyboardDoubleArrowDownRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowDownRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { SortProps } from "../types";
 
 function GroupBy({ selectedColumn }: SortProps) {
@@ -25,7 +17,6 @@ function GroupBy({ selectedColumn }: SortProps) {
         sx={{
           display: "flex",
           padding: theme.spacing(1)
-        //   justifyContent: "center",
         }}
       >
         <Switch
@@ -40,7 +31,6 @@ function GroupBy({ selectedColumn }: SortProps) {
         xs={6}
         sx={{
           display: "flex",
-        //   justifyContent: "center",  
         }}
       >
         <Typography variant="subtitle2" sx={{ marginTop: "auto",marginBottom: "auto" }}>

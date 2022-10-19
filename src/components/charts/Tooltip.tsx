@@ -1,18 +1,8 @@
 import Card, { CardProps } from "@mui/material/Card";
 import {
-  Grid,
-  iconButtonClasses,
   styled,
-  SvgIcon,
   Typography,
 } from "@mui/material";
-import {
-  CropSquare,
-  EuroRounded,
-  HorizontalRule,
-  NorthEast,
-  SouthEast,
-} from "@mui/icons-material";
 import theme from "../../theme/Theme";
 import { Box } from "@mui/system";
 import { TooltipProps } from "recharts/types/component/Tooltip";
@@ -83,8 +73,7 @@ export default function ToolTipComponent(props: CustomCardProps) {
                       payloadItem.stroke
                 }
               >
-                <EuroRounded fontSize="inherit" />
-                {payloadItem.value?.toLocaleString()}
+                {`€ ${payloadItem.value?.toLocaleString()}`}
               </Typography>
             </Box>
           </Box>

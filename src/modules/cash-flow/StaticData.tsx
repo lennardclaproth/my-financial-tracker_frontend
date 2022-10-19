@@ -1,22 +1,17 @@
-import {
-  ArrowDownwardRounded,
-  ArrowUpwardRounded,
-  ShowChartRounded,
-} from "@mui/icons-material";
-import InfoCard from "../../components/cards/InfoCard";
+import { ArrowDownIcon, ArrowUpIcon, LineChartIcon } from "modules/icons/Icons";
 
 const buttons = [
   {
     viewName: "Overview",
-    icon: <ShowChartRounded />,
+    icon: <LineChartIcon />,
   },
   {
     viewName: "Incoming",
-    icon: <ArrowDownwardRounded />,
+    icon: <ArrowDownIcon />,
   },
   {
     viewName: "Outgoing",
-    icon: <ArrowUpwardRounded />,
+    icon: <ArrowUpIcon />,
   },
 ];
 
@@ -26,4 +21,4 @@ enum views {
   Outgoing = "Outgoing",
 }
 
-export { columnProps, testData, buttons, views}
+export { buttons, views}

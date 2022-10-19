@@ -3,18 +3,11 @@ import * as React from "react";
 import {
   Grid,
   IconButton,
-  InputAdornment,
-  Switch,
-  TextField,
   Typography,
 } from "@mui/material";
 import theme from "../../../theme/Theme";
-import MenuComponent from "../../menu/Menu";
-import HorizontalRuleRoundedIcon from "@mui/icons-material/HorizontalRuleRounded";
-import KeyboardDoubleArrowUpRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowUpRounded";
-import KeyboardDoubleArrowDownRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowDownRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import { SortProps } from "../types";
+import { HorizontalRuleIcon, SortAscIcon, SortDescIcon } from "modules/icons/Icons";
 
 function Sort({ selectedColumn }: SortProps) {
   return (
@@ -34,7 +27,7 @@ function Sort({ selectedColumn }: SortProps) {
                 selectedColumn.toggleSortBy();
               }}
             >
-              <KeyboardDoubleArrowDownRoundedIcon />
+              <SortDescIcon />
             </IconButton>
           ) : (
             <IconButton
@@ -42,7 +35,7 @@ function Sort({ selectedColumn }: SortProps) {
                 selectedColumn.toggleSortBy();
               }}
             >
-              <KeyboardDoubleArrowUpRoundedIcon />
+              <SortAscIcon />
             </IconButton>
           )
         ) : (
@@ -52,7 +45,7 @@ function Sort({ selectedColumn }: SortProps) {
             }}
             sx={{}}
           >
-            <HorizontalRuleRoundedIcon />
+            <HorizontalRuleIcon />
           </IconButton>
         )}
       </Grid>

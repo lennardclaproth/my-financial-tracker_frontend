@@ -6,7 +6,7 @@ import { FileUploadProps } from "../types";
 import VerticalFlexBox from "components/containers/VerticalFlexBox";
 import ContainerCard from "components/containers/ContainerCard";
 import { grey } from "@mui/material/colors";
-import { FileOpenRounded } from "@mui/icons-material";
+import { OpenFileIcon } from "modules/icons/Icons";
 
 // TODO: add typings
 
@@ -26,11 +26,9 @@ function cardHeader() {
 
 function cardBody(selectedOption) {
   return (
-    <VerticalFlexBox sx={{padding:0}}>
+    <VerticalFlexBox sx={{padding:0, marginTop:theme.spacing(3)}}>
       <Typography
-        variant="h6"
-        paragraph
-        sx={{ color: grey[700] }}
+        variant="h3"
         align="center"
       >
         Select your file!
@@ -38,8 +36,8 @@ function cardBody(selectedOption) {
       <Typography
         variant="body1"
         paragraph
-        sx={{ color: grey[600] }}
         align="center"
+        sx={{color: grey[600], mb: theme.spacing(3)}}
       >
         You can now upload your file. The filename should look like this:{" "}
         <b>{selectedOption.fileNameExample}</b>
@@ -56,7 +54,7 @@ function cardFooter(handleUpload) {
       color="primary"
       size="large"
       fullWidth
-      startIcon={<FileOpenRounded />}
+      startIcon={<OpenFileIcon />}
       sx={{
         borderRadius: "10px",
         color: theme.palette.secondary.main,
