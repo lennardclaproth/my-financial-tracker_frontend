@@ -1,8 +1,4 @@
 import type { NextPage, NextPageContext } from "next";
-import "@fontsource/roboto/300.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/500.css";
-import "@fontsource/roboto/700.css";
 import Overview from "modules/cash-flow/Overview";
 import Details from "modules/cash-flow/Details";
 import ContainerCard from "components/containers/ContainerCard";
@@ -16,29 +12,26 @@ import theme from "theme/Theme";
 import VerticalFlexBox from "components/containers/VerticalFlexBox";
 import Header from "components/headers/Header";
 import moment from "moment";
-// import { buttons, views } from "./static-data/Views";
 import {
-  buttons,
+  overviewTabs,
   taggingButtons,
   views,
 } from "modules/cash-flow/static-data/Views";
 import { columnProps } from "modules/cash-flow/static-data/TableConfig";
 import { CashFlowProps } from "modules/cash-flow/types";
 import Button from "@mui/material/Button";
-import HelpOutlineRounded from "@mui/icons-material/HelpOutlineRounded";
 import { grey } from "@mui/material/colors";
-import { AddRounded } from "@mui/icons-material";
 import Right from "components/Drawers/Right";
 import ImageCard from "components/cards/ImageCard";
 import tag from "illustrations/illustrations-svg/tag.svg";
 import Typography from "@mui/material/Typography";
-import SelectList from "components/select/Select";
-import { TextField } from "@mui/material";
-import HelpOutlineRoundedIcon from '@mui/icons-material/HelpOutlineRounded';
+import TextField from "@mui/material/TextField";
+import { HelpIcon, PlusIcon } from "modules/icons/Icons";
+
 // TODO add typings
 
 function getActiveView(
-  view: string,
+  view: number,
   activeMonth: any,
   setActiveMonth: () => void,
   cashFlowState: any
@@ -64,7 +57,7 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
   const filter = useSelector((state: any) => state.globalFilter.dateFilter);
   const [prevFilterState, setPrevFilterState] = useState(filter);
   const [cashFlowState, setCashflowState] = useState(cashFlow);
-  const [activeView, setActiveView] = useState("Overview");
+  const [activeView, setActiveView] = useState(1);
   const [activeTagView, setActiveTagView] = useState("Tag");
   const [activeMonth, setActiveMonth] = useState(cashFlow[cashFlow.length - 1]);
   const [drawerActive, setDrawerActive] = useState(false);
@@ -89,32 +82,7 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
             title={moment(activeMonth.dateString).format("MMMM YYYY")}
             activeView={activeView}
             setActiveView={setActiveView}
-            functions={buttons.map((button: any, index: number) => {
-              return (
-                <Button
-                  key={index}
-                  variant="text"
-                  onClick={() => {
-                    setActiveView(button.viewName);
-                  }}
-                  disableElevation
-                  startIcon={button.icon}
-                  sx={{
-                    borderRadius: "8px",
-                    borderBottomLeftRadius: 0,
-                    borderBottomRightRadius: 0,
-                    borderBottom:
-                      button.viewName === activeView
-                        ? `1px solid ${theme.palette.primary.main}`
-                        : "none",
-                    marginBottom: "-1px",
-                    marginLeft: theme.spacing(1),
-                  }}
-                >
-                  {button.viewName}
-                </Button>
-              );
-            })}
+            tabs={overviewTabs}
             sx={{}}
           />
         }
@@ -144,14 +112,14 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
                       setDrawerActive(true);
                     }}
                     disableElevation
-                    startIcon={<AddRounded />}
+                    startIcon={<PlusIcon />}
                     sx={{
                       borderRadius: "8px",
                       borderBottomLeftRadius: 0,
                       borderBottomRightRadius: 0,
                       marginBottom: "-1px",
                       color: theme.palette.secondary.main,
-                      minHeight: "36.5px",
+                      minHeight: "3rem",
                       marginLeft: theme.spacing(1),
                     }}
                   >
@@ -219,7 +187,6 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
                         <Typography
                           variant="h6"
                           paragraph
-                          sx={{ color: grey[700] }}
                           align="center"
                         >
                           Welcome to the tagging page!
@@ -227,7 +194,6 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
                         <Typography
                           variant="body1"
                           paragraph
-                          sx={{ color: grey[600] }}
                           align="center"
                         >
                           You can select a tag from the select field or create a
@@ -278,11 +244,11 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
                       borderBottomRightRadius: 0,
                       marginBottom: "-1px",
                       marginLeft: theme.spacing(1),
-                      minHeight: "36.5px",
+                      minHeight: "3rem",
                       color: grey[500],
                     }}
                   >
-                    <HelpOutlineRounded />
+                    <HelpIcon />
                   </Button>
                 </HorizontalFlexBox>
               }

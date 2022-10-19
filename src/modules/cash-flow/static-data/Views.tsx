@@ -1,41 +1,44 @@
 import {
-    ArrowDownwardRounded,
-    ArrowUpwardRounded,
-    ShowChartRounded,
-    SellRounded,
-    TableChartRounded
-  } from "@mui/icons-material";
+  ArrowDownIcon,
+  ArrowUpIcon,
+  LineChartIcon,
+  TableIcon,
+  TagIcon,
+} from "modules/icons/Icons";
 
-const buttons = [
+const overviewTabs = [
   {
+    index: 1,
     viewName: "Overview",
-    icon: <ShowChartRounded />,
+    icon: <LineChartIcon fontSize="inherit" />,
   },
   {
+    index: 2,
     viewName: "Incoming",
-    icon: <ArrowDownwardRounded />,
+    icon: <ArrowDownIcon fontSize="inherit" />,
   },
   {
+    index: 3,
     viewName: "Outgoing",
-    icon: <ArrowUpwardRounded />,
+    icon: <ArrowUpIcon fontSize="inherit" />,
   },
 ];
 
 const taggingButtons = [
-    {
-      viewName: "Tag",
-      icon: <SellRounded />,
-    },
-    {
-      viewName: "Transactions",
-      icon: <TableChartRounded />,
-    }
-  ];
+  {
+    viewName: "Tag",
+    icon: <TagIcon />,
+  },
+  {
+    viewName: "Transactions",
+    icon: <TableIcon fontSize="inherit" />,
+  },
+];
 
 enum views {
-  Overview = "Overview",
-  Incoming = "Incoming",
-  Outgoing = "Outgoing",
+  Overview = 1,
+  Incoming = 2,
+  Outgoing = 3,
 }
 
-export { buttons, views, taggingButtons };
+export { overviewTabs, views, taggingButtons };

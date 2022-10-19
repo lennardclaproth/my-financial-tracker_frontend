@@ -2,15 +2,13 @@
 import * as React from "react";
 import { Row, TableBodyProps } from "react-table";
 import { TableCell, Typography } from "@mui/material";
-import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 import theme from "../../theme/Theme";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import HorizontalFlexBox from "../containers/HorizontalFlexBox";
 import INGimage from "bank-icons/ING.png";
 import { CellTypes } from "./types";
-import EuroRoundedIcon from "@mui/icons-material/EuroRounded";
 import moment from "moment";
 import ImageCard from "components/cards/ImageCard";
+import { ChevronDownIcon, ChevronRightIcon } from "modules/icons/Icons";
 
 interface getTableBodyProps {
   getTableBodyProps: () => TableBodyProps;
@@ -49,12 +47,12 @@ function buildTableCell(cell, row) {
           >
             <HorizontalFlexBox>
               {row.isExpanded ? (
-                <ExpandMoreRoundedIcon
+                <ChevronDownIcon
                   fontSize="small"
                   sx={{ marginRight: theme.spacing(1) }}
                 />
               ) : (
-                <ChevronRightRoundedIcon
+                <ChevronRightIcon
                   fontSize="small"
                   sx={{ marginRight: theme.spacing(1) }}
                 />
@@ -93,7 +91,7 @@ function getTableCell(cell, row) {
       case CellTypes.eur:
         return (
           <HorizontalFlexBox sx={{}}>
-            <EuroRoundedIcon sx={{ mr: 1 }} fontSize={"inherit"} />
+            {"€ "}
             {cell.value.toFixed(2)}
           </HorizontalFlexBox>
         );

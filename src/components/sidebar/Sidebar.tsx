@@ -3,41 +3,43 @@ import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import SvgIcon from "@mui/icons-material/Home";
-import PaymentsRoundedIcon from "@mui/icons-material/PaymentsRounded";
-import MonetizationOnRoundedIcon from "@mui/icons-material/MonetizationOnRounded";
 import { Button, MenuItem, Typography } from "@mui/material";
 import router from "next/router";
 import logo from "logo/logo.png";
 import Image from "next/image";
-import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
-import PieChartRoundedIcon from "@mui/icons-material/PieChartRounded";
-import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
-import SavingsRoundedIcon from "@mui/icons-material/SavingsRounded";
 import Menu from "../menu/Menu";
 import SidebarButton from "./SidebarButton";
-import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
-import ImportExportRoundedIcon from "@mui/icons-material/ImportExportRounded";
 import theme from "theme/Theme";
-import Tag from "@mui/icons-material/LocalOfferRounded";
-import DesignServicesRoundedIcon from "@mui/icons-material/DesignServicesRounded";
+import {
+  BankIcon,
+  DashboardIcon,
+  DollarBillIcon,
+  DownloadIcon,
+  ImportExportIcon,
+  MonetizationIcon,
+  PieChartIcon,
+  SavingsIcon,
+  TagIconOutlined,
+  TagRulerIcon,
+} from "modules/icons/Icons";
 
 const buttons = [
   {
     name: "Dashboard",
-    icon: DashboardRoundedIcon,
+    icon: DashboardIcon,
     menuButtons: [
       {
-        icon: PaymentsRoundedIcon,
+        icon: DollarBillIcon,
         name: "Cash flow",
         route: "/cash-flow",
       },
       {
-        icon: PieChartRoundedIcon,
+        icon: PieChartIcon,
         name: "Portfolio",
         route: "/portfolio",
       },
       {
-        icon: SavingsRoundedIcon,
+        icon: SavingsIcon,
         name: "Savings",
         route: "/savings",
       },
@@ -45,20 +47,20 @@ const buttons = [
   },
   {
     name: "Import data",
-    icon: ImportExportRoundedIcon,
+    icon: ImportExportIcon,
     menuButtons: [
       {
-        icon: AccountBalanceRoundedIcon,
+        icon: BankIcon,
         name: "Bank import",
         route: "/bank-import",
       },
       {
-        icon: MonetizationOnRoundedIcon,
+        icon: MonetizationIcon,
         name: "Broker import",
         route: "/broker-import",
       },
       {
-        icon: DownloadRoundedIcon,
+        icon: DownloadIcon,
         name: "Export your data",
         route: "/export",
       },
@@ -66,10 +68,10 @@ const buttons = [
   },
   {
     name: "Tag",
-    icon: Tag,
+    icon: TagIconOutlined,
     menuButtons: [
       {
-        icon: DesignServicesRoundedIcon,
+        icon: TagRulerIcon,
         name: "Manage tags",
         route: "/manage-tags",
       },
