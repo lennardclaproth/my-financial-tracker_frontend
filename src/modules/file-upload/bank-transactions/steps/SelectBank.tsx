@@ -27,14 +27,14 @@ function cardHeader() {
 
 function cardBody() {
     return (
-      <VerticalFlexBox sx={{padding:0}}>
-        <Typography variant="h6" paragraph sx={{ color: grey[700] }} align="center">
+      <VerticalFlexBox sx={{padding:0, marginTop: theme.spacing(3)}}>
+        <Typography variant="h3" align="center">
           Welcome!
         </Typography>
         <Typography
           variant="body1"
           paragraph
-          sx={{ color: grey[600], mb: 0 }}
+          sx={{ mb: 0, color: grey[600] }}
           align="center"
         >
           Please select a bank from which you want to upload a file with

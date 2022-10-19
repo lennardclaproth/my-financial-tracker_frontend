@@ -2,19 +2,12 @@
 import * as React from "react";
 import {
   Grid,
-  IconButton,
   InputAdornment,
-  Switch,
   TextField,
-  Typography,
 } from "@mui/material";
-import theme from "../../../theme/Theme";
-import MenuComponent from "../../menu/Menu";
-import HorizontalRuleRoundedIcon from "@mui/icons-material/HorizontalRuleRounded";
-import KeyboardDoubleArrowUpRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowUpRounded";
-import KeyboardDoubleArrowDownRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowDownRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import theme from "theme/Theme";
 import { SortProps } from "../types";
+import { SearchIcon } from "modules/icons/Icons";
 
 function Search({ selectedColumn }: SortProps) {
   return (
@@ -41,7 +34,7 @@ function Search({ selectedColumn }: SortProps) {
           InputProps={{
             startAdornment: (
               <InputAdornment position="end">
-                <SearchRoundedIcon />
+                <SearchIcon />
               </InputAdornment>
             ),
           }}

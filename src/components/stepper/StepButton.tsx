@@ -2,9 +2,8 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { Grow, IconButton, SvgIcon, Typography } from "@mui/material";
 import theme from "../../theme/Theme";
-import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
-import DoneAllRoundedIcon from "@mui/icons-material/DoneRounded";
 import { Step, StepProps } from "./types";
+import { CheckIcon } from "modules/icons/Icons";
 
 function resetSteps(steps: Step[], stepToResetTo: Step) {
     
@@ -73,7 +72,7 @@ export default function StepperComponent({
             in={step.completed}
             {...(step.completed ? { timeout: 500 } : {})}
           >
-            <SvgIcon component={DoneRoundedIcon} />
+            <SvgIcon component={CheckIcon} />
           </Grow>
         ) : (
           <SvgIcon component={step.icon} />
@@ -83,7 +82,7 @@ export default function StepperComponent({
             in={step.completed}
             {...(step.completed ? { timeout: 500 } : {})}
           >
-            <SvgIcon component={DoneAllRoundedIcon} />
+            <SvgIcon component={CheckIcon} />
           </Grow>
         ) : (
           false

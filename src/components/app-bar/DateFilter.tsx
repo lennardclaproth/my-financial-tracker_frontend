@@ -8,11 +8,10 @@ import {
   RadioGroup,
 } from "@mui/material";
 import theme from "../../theme/Theme";
-import FilterListRoundedIcon from "@mui/icons-material/FilterListRounded";
+import { FilterIcon } from "modules/icons/Icons";
 import MenuComponent from "../menu/Menu";
 import { setFilter } from "../../store/slices/globalFilterSlice";
 import { useSelector, useDispatch } from 'react-redux'
-
 
 const filters = [
   {
@@ -56,12 +55,12 @@ const DateFilterComponent = () => {
         sx={{ pl: 2, pr: 2, height: "100%", borderRadius: "0px", width: "100%" }}
         color="secondary"
         variant="text"
-        startIcon={<FilterListRoundedIcon />}
+        startIcon={<FilterIcon />}
         onClick={(e) => {
           handleClick(e);
         }}
       >
-        {filter}
+        <Typography variant="subtitle1">{filter}</Typography>
       </Button>
       <MenuComponent
         anchorEl={anchorEl}

@@ -9,9 +9,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { FilterListRounded } from "@mui/icons-material";
-import KeyboardDoubleArrowUpRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowUpRounded";
-import KeyboardDoubleArrowDownRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowDownRounded";
+import { FilterIcon, SortAscIcon, SortDescIcon } from "modules/icons/Icons";
 import TableFunctions from "./table-functions/TableFunctions";
 import HorizontalFlexBox from "../containers/HorizontalFlexBox";
 import { TableHeaderProps } from "./types";
@@ -63,9 +61,9 @@ function TableHeader({ headerGroups, columns }: TableHeaderProps) {
                 <HorizontalFlexBox sx={{ justifyContent: "space-between" }}>
                   {column.isSorted ? (
                     column.isSortedDesc ? (
-                      <KeyboardDoubleArrowDownRoundedIcon fontSize="small" />
+                      <SortDescIcon fontSize="small" />
                     ) : (
-                      <KeyboardDoubleArrowUpRoundedIcon fontSize="small" />
+                      <SortAscIcon fontSize="small" />
                     )
                   ) : (
                     false
@@ -87,7 +85,7 @@ function TableHeader({ headerGroups, columns }: TableHeaderProps) {
                             "& :hover": { boxShadow: "none" },
                           }}
                         >
-                          <FilterListRounded fontSize="small" />
+                          <FilterIcon fontSize="small" />
                         </IconButton>
                       </Badge>
                       <TableFunctions

@@ -1,65 +1,12 @@
 /* eslint-disable react/jsx-key */
 import * as React from "react";
-import Box from "@mui/material/Box";
 import {
-  defaultColumn,
-  useExpanded,
-  useGroupBy,
-  useResizeColumns,
-  useRowSelect,
-  useSortBy,
-  useTable,
-  useFilters,
-  useAsyncDebounce,
-  HeaderGroup,
-  ColumnInstance,
   Row,
-  TableBodyPropGetter,
   TableBodyProps,
 } from "react-table";
 import {
-  Badge,
-  Button,
-  Chip,
-  FormControlLabel,
-  Grid,
-  IconButton,
-  InputAdornment,
-  Paper,
-  Popover,
-  Radio,
-  RadioGroup,
-  Switch,
-  Table,
   TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-//   TableRow,
-  TextField,
-  Typography,
 } from "@mui/material";
-import ExpandLessRoundedIcon from "@mui/icons-material/ExpandLessRounded";
-import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
-import theme from "../../theme/Theme";
-import {
-  CheckBox,
-  Filter1Rounded,
-  FilterListOffRounded,
-  FilterListRounded,
-} from "@mui/icons-material";
-import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import WorkspacesRoundedIcon from "@mui/icons-material/WorkspacesRounded";
-import ClearRoundedIcon from "@mui/icons-material/ClearRounded";
-import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-import MenuComponent from "../menu/Menu";
-import HorizontalRuleRoundedIcon from "@mui/icons-material/HorizontalRuleRounded";
-import KeyboardDoubleArrowUpRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowUpRounded";
-import KeyboardDoubleArrowDownRoundedIcon from "@mui/icons-material/KeyboardDoubleArrowDownRounded";
-import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
-import TableFunctions from "./table-functions/TableFunctions";
-import HorizontalFlexBox from "../containers/HorizontalFlexBox";
 import INGimage from "bank-icons/ING.png"
 import TableRow from "./TableRow"
 interface getTableBodyProps {
