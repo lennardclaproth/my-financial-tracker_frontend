@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import { Box, Button, Divider, Grid, Menu, Tab, Tabs } from "@mui/material";
-import Wizard from "../../modules/file-upload/bank-transactions/Wizard";
+import Wizard from "modules/file-upload/bank-transactions/Wizard";
 import VerticalFlexBox from "components/containers/VerticalFlexBox";
 import HorizontalFlexBox from "components/containers/HorizontalFlexBox";
 import ContainerCard from "components/containers/ContainerCard";
@@ -22,7 +22,7 @@ function a11yProps(index: number) {
   };
 }
 
-const BankImport: NextPage = () => {
+function AuditDataHandler() {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -30,7 +30,7 @@ const BankImport: NextPage = () => {
   };
 
   return (
-    <Grid container direction="row" alignItems="start" height={1}>
+    // <Grid container direction="row" alignItems="start" height={1}>
       <ContainerCard
         header={<Header title={"Data to audit"} />}
         body={
@@ -89,8 +89,8 @@ const BankImport: NextPage = () => {
           </HorizontalFlexBox>
         }
       ></ContainerCard>
-    </Grid>
+    // </Grid>
   );
 };
 
-export default BankImport;
+export default AuditDataHandler;

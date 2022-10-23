@@ -19,7 +19,7 @@ const Layout: NextPage = ({children}) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <SideBar />
+      {/* <SideBar /> */}
       <AppBarComponent />
       <main className={styles.main}>
         {children}

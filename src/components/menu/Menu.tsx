@@ -7,8 +7,8 @@ import {
 const StyledMenu = styled((props: CustomMenuProps) => <Menu {...props} />)(
   ({ theme, menuwidth }) => ({
     "& .MuiPaper-root": {
-      borderRadius: "16px",
-      borderRight: "none",
+      borderRadius: ".5rem",
+    //   borderRight: "none",
       color: theme.palette.primary.main,
       width: menuwidth,
       padding: theme.spacing(1),
@@ -22,7 +22,7 @@ const StyledMenu = styled((props: CustomMenuProps) => <Menu {...props} />)(
         
       },
       "& .MuiMenuItem-root": {
-          borderRadius: "8px",
+          borderRadius: ".2rem",
         "& .MuiSvgIcon-root": {
           color: theme.palette.primary.main,
         },

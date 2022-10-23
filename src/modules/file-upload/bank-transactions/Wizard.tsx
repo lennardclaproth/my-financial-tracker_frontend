@@ -6,6 +6,7 @@ import Stepper from "components/stepper/Stepper";
 import SelectBank from "./steps/SelectBank";
 import SelectFile from "./steps/SelectFile";
 import ReviewData from "./steps/ReviewData";
+import { Divider } from "@mui/material";
 
 // TODO: refactor
 // TODO: implement Completed step
@@ -83,7 +84,7 @@ function Wizard() {
     },
   };
   return (
-    <VerticalFlexBox sx={{ width: "100%" }}>
+    <VerticalFlexBox sx={{ width: "500px", padding: 0 }}>
       <Stepper
         activeStep={activeStep}
         setActiveStep={setActiveStep}

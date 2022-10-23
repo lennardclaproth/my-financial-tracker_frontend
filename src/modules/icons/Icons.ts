@@ -27,6 +27,7 @@ import LineChartIcon from "@mui/icons-material/ShowChart"
 import FileUploadIcon from "@mui/icons-material/FileUpload"
 import FinishFlagIcon from "@mui/icons-material/SportsScore"
 import PlusIcon from "@mui/icons-material/Add";
+import ArrowRightIcon from '@mui/icons-material/East';
 
 // INFO: Outlined icons
 import DashboardIcon from "@mui/icons-material/DashboardOutlined";
@@ -78,5 +79,6 @@ export {
   DeleteIcon,
   OpenFileIcon,
   HelpIcon,
-  PlusIcon
+  PlusIcon,
+  ArrowRightIcon
 };

@@ -4,16 +4,18 @@ import selectionPalette from "./SelectionPalette";
 
 const theme = createTheme({
   typography:{
-    fontFamily: ['Roboto','sans-serif'].join(','),
+    fontFamily: ['Avenir','sans-serif'].join(','),
     fontWeightRegular: "500",
     fontSize: 14,
     h3:{
         fontFamily: ['Tiempos Headline'].join(','),
+        fontWeight: "500",
         color: grey[800]
         // fontWeight: "100"
     },
     h4:{
         fontFamily: ['Tiempos Headline'].join(','),
+        fontWeight: "500",
         color: grey[800]
         // fontWeight: "100"
     },
@@ -28,9 +30,10 @@ const theme = createTheme({
         fontWeight: "200",
         fontSize: "1rem"
     },
-    // subtitle1: {
-    //     fontFamily: ['Roboto'].join(',')
-    // }
+    subtitle1: {
+        fontFamily: ['avenir'].join(','),
+        fontWeight: "800",
+    }
   },
   palette: {
     text: {

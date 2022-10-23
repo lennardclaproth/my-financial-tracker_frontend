@@ -9,6 +9,8 @@ export default class ResponseHandler {
     static handle(response: AxiosResponse){
         if(response.status === status.OK || response.status === status.CREATED){
             return response.data
+        } else{
+            console.log(response)
         }
     }
 }

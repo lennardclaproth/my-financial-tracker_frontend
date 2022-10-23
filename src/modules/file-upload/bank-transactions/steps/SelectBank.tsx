@@ -1,7 +1,4 @@
-import {
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { MenuItem, Typography } from "@mui/material";
 import ImageCard from "components/cards/ImageCard";
 import { ImportOptionsProps } from "../types";
 import VerticalFlexBox from "components/containers/VerticalFlexBox";
@@ -9,7 +6,7 @@ import ContainerCard from "components/containers/ContainerCard";
 import { grey } from "@mui/material/colors";
 import person from "illustrations/illustrations-svg/triangles-boxes-circles-person.svg";
 import HorizontalFlexBox from "components/containers/HorizontalFlexBox";
-import theme from "theme/Theme"; 
+import theme from "theme/Theme";
 
 function cardHeader() {
   return (
@@ -20,37 +17,38 @@ function cardHeader() {
       imagewidth={"400px"}
       image={person}
       alt={"bankImage"}
-      sx={{ boxShadow: "none", padding: 0, marginLeft: theme.spacing(-1) }}
+      sx={{ boxShadow: "none", padding: 0, margin: "auto" }}
     />
   );
 }
 
 function cardBody() {
-    return (
-      <VerticalFlexBox sx={{padding:0, marginTop: theme.spacing(3)}}>
-        <Typography variant="h3" align="center">
-          Welcome!
-        </Typography>
-        <Typography
-          variant="body1"
-          paragraph
-          sx={{ mb: 0, color: grey[600] }}
-          align="center"
-        >
-          Please select a bank from which you want to upload a file with
-          transactions.
-        </Typography>
-      </VerticalFlexBox>
-    );
-  }
+  return (
+    <VerticalFlexBox sx={{ padding: 0, marginTop: theme.spacing(3) }}>
+      <Typography variant="h3" align="center">
+        Welcome!
+      </Typography>
+      <Typography
+        variant="body1"
+        paragraph
+        sx={{ mb: 0, color: grey[600] }}
+        align="center"
+      >
+        Please select a bank from which you want to upload a file with
+        transactions.
+      </Typography>
+    </VerticalFlexBox>
+  );
+}
 
-function cardFooter({options, handleClick}:ImportOptionsProps) {
+function cardFooter({ options, handleClick }: ImportOptionsProps) {
   return (
     <HorizontalFlexBox
       sx={{
         justifyContent: "space-evenly",
         flexWrap: "wrap",
         alignItems: "center",
+        mb: 1
       }}
     >
       {options.map((option, index) => {
@@ -93,10 +91,16 @@ function SelectBank({ handleClick, options }: ImportOptionsProps) {
   return (
     <VerticalFlexBox>
       <ContainerCard
-        sx={{ overflow: "auto", width: "450px", height: "100%" }}
+        sx={{
+          overflow: "auto",
+          width: "450px",
+          height: "100%",
+          boxShadow: "none",
+          padding: 0,
+        }}
         header={cardHeader()}
         body={cardBody()}
-        footer={cardFooter({options, handleClick})}
+        footer={cardFooter({ options, handleClick })}
       ></ContainerCard>
     </VerticalFlexBox>
   );

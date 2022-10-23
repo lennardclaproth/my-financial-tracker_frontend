@@ -7,7 +7,8 @@ function HorizontalFlexBox({ children, sx }: BoxProps) {
         display: "flex",
         flexDirection: "row",
         verticalAlign: "middle",
-        alignItems: "center"},
+        alignItems: "center",
+        padding: 0},
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
     >

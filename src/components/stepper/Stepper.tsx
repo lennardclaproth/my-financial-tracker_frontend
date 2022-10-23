@@ -12,16 +12,18 @@ export default function Stepper({
   return (
     <ContainerCard
       sx={{
-        width: "60%",
+        width: "100%",
         // backgroundColor: theme.palette.primary.main,
         backgroundColor: "white",
         paddingTop: 0,
         paddingBottom: 0,
+        padding: 0,
         display: "flex",
         flexDirection: "row",
         margin: "auto",
         justifyContent: "space-between",
         height: "64px",
+        boxShadow: "none"
       }}
       body={steps.map((step: any, index: number) => (
         <StepComponent

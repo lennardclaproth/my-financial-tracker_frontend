@@ -13,9 +13,9 @@ import {
 import VerticalFlexBox from "../containers/VerticalFlexBox";
 
 interface customProps {
-  setActiveView: (value: number) => void;
-  activeView: number;
-  sx: SxProps;
+  setActiveView?: (value: number) => void;
+  activeView?: number;
+  sx?: SxProps;
   functions?: any;
   tabs?: any;
   title: string;
@@ -48,7 +48,7 @@ function getTabs(props: any) {
             value={tab.index}
             sx={{
               minHeight: "3rem",
-              borderRadius: "8px",
+              borderRadius: ".5rem",
               borderBottomLeftRadius: 0,
               borderBottomRightRadius: 0,
               marginLeft: theme.spacing(1),

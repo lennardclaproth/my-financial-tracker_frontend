@@ -43,7 +43,7 @@ function getBody() {
 
 function getFooter(activeOption) {
   return (
-    <VerticalFlexBox sx={{padding:0}}>
+    <VerticalFlexBox sx={{padding:0, mb:1}}>
       <Button
         variant="contained"
         component="label"
@@ -105,7 +105,7 @@ export default function ReviewData({ activeOption, saveData, previewData, discar
         header={getHeader()}
         body={getBody()}
         footer={getFooter(activeOption)}
-        sx={{ width: "450px" }}
+        sx={{ width: "450px", padding: 0, boxShadow: 0 }}
       />
     </VerticalFlexBox>
   );

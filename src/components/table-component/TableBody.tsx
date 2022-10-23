@@ -31,10 +31,10 @@ function TableBodyComponent({
 }: getTableBodyProps) {
   return (
     <TableBody {...getTableBodyProps()}>
-      {rows.map((row) => {
+      {rows.map((row, index) => {
         // prepareRow(row);
         return (
-            <TableRow row={row} prepareRow={prepareRow}/>
+            <TableRow key={`row-${index}`} row={row} prepareRow={prepareRow}/>
         //   <TableRow
         //     {...row.getRowProps()}
         //     onClick={() => {

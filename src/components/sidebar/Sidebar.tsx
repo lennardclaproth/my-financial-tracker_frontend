@@ -84,7 +84,7 @@ const StyledSidebar = styled(MuiDrawer, {
 })(({ theme }) => ({
   "& .MuiDrawer-paper": {
     background: theme.palette.primary.dark,
-    borderRadius: "16px",
+    borderRadius: ".5rem",
     marginLeft: "0.5rem",
     marginTop: "0.5rem",
     height: "calc(100% - 1rem)",
@@ -149,6 +149,7 @@ export default function Sidebar() {
           vertical: 0,
           horizontal: -12,
         }}
+        sx={{}}
       >
         {buttons[activeMenu].menuButtons.map((menuButton, index) => (
           <MenuItem
@@ -156,9 +157,10 @@ export default function Sidebar() {
               handleClose(), router.push(menuButton.route);
             }}
             key={`menuButton-${index}`}
+            sx={{borderRadius: "0"}}
           >
-            <SvgIcon component={menuButton.icon} />
-            <Typography variant="subtitle2" sx={{ marginLeft: 1 }}>
+            <SvgIcon component={menuButton.icon} fontSize="inherit" />
+            <Typography variant="subtitle1" sx={{ marginLeft: 1 }}>
               {menuButton.name}
             </Typography>
           </MenuItem>

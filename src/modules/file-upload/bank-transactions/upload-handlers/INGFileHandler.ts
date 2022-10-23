@@ -32,14 +32,9 @@ export default class IngFileHandler {
 
   read(fileReader: FileReader, result: Array<Record<string, string>>) {
     const rows = this.prepareRows(fileReader.result);
-    // INFO: possible fault check what rows.shift does here
     const headers = this.getHeaders(rows.shift());
     this.fileData = this.mapRowsToObj(rows, headers);
-    // this.fileData = result;
-    // console.log(this.fileData);
     this.handleMapData();
-    //   }
-    // }
   }
   prepareRows(fileReaderResult) {
     return fileReaderResult.toString().split(/\r?\n|\r/);
@@ -47,6 +42,7 @@ export default class IngFileHandler {
   getHeaders(row) {
     return row.replace(/"/g, "").split(";");
   }
+
   mapRowsToObj(rowsAsString, headers) {
     const results = [];
     rowsAsString.forEach((rowAsString) => {

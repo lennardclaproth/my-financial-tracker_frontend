@@ -7,7 +7,7 @@ function VerticalFlexBox({ children, sx }: BoxProps) {
         display: "flex",
         flexDirection: "column",
         margin: "auto",
-        padding: 3
+        padding: 0
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}

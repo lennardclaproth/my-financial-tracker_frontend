@@ -21,12 +21,12 @@ import { columnProps } from "modules/cash-flow/static-data/TableConfig";
 import { CashFlowProps } from "modules/cash-flow/types";
 import Button from "@mui/material/Button";
 import { grey } from "@mui/material/colors";
-import Right from "components/Drawers/Right";
-import ImageCard from "components/cards/ImageCard";
-import tag from "illustrations/illustrations-svg/tag.svg";
-import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
-import { HelpIcon, PlusIcon } from "modules/icons/Icons";
+import { DownloadIcon, HelpIcon, PlusIcon } from "modules/icons/Icons";
+import { CashFlow, Transaction } from "modules/request-handler/types";
+import NewTag from "modules/tagging/NewTag";
+import { Dialog } from "@mui/material";
+import Wizard from "modules/file-upload/bank-transactions/Wizard";
+import AuditDataHandler from "modules/file-upload/AuditDataHandler";
 
 // TODO add typings
 
@@ -58,14 +58,14 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
   const [prevFilterState, setPrevFilterState] = useState(filter);
   const [cashFlowState, setCashflowState] = useState(cashFlow);
   const [activeView, setActiveView] = useState(1);
-  const [activeTagView, setActiveTagView] = useState("Tag");
   const [activeMonth, setActiveMonth] = useState(cashFlow[cashFlow.length - 1]);
   const [drawerActive, setDrawerActive] = useState(false);
+  const [dialogActive, setDialogActive] = useState(false);
   useEffect(() => {
     const handleFetch = () => {
-      RequestHandler.GET("/Transaction/Bank/CashFlow", {
+      RequestHandler.GET<CashFlow>("/Transaction/Bank/CashFlow", {
         params: { filter: filter },
-      }).then((res: any) => setCashflowState(res.data));
+      }).then((res: any) => setCashflowState(res));
     };
     if (prevFilterState != filter) {
       handleFetch();
@@ -114,7 +114,7 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
                     disableElevation
                     startIcon={<PlusIcon />}
                     sx={{
-                      borderRadius: "8px",
+                      borderRadius: ".5rem",
                       borderBottomLeftRadius: 0,
                       borderBottomRightRadius: 0,
                       marginBottom: "-1px",
@@ -123,123 +123,52 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
                       marginLeft: theme.spacing(1),
                     }}
                   >
-                    Tag
+                   New tag
                   </Button>
-                  <Right
-                    open={drawerActive}
-                    onClose={() => {
-                      setDrawerActive(false);
+                  {/* TODO: change this to use drawer component and use a module to load in the drawer */}
+                  <NewTag
+                    drawerActive={drawerActive}
+                    setDrawerActive={setDrawerActive}
+                  ></NewTag>
+                  <Button
+                    variant="outlined"
+                    onClick={() => {
+                      setDialogActive(true);
+                    }}
+                    disableElevation
+                    startIcon={<DownloadIcon fontSize="inherit"/>}
+                    sx={{
+                      borderRadius: ".5rem",
+                      borderBottomLeftRadius: 0,
+                      borderBottomRightRadius: 0,
+                      borderBottom: 0,
+                      marginBottom: "-1px",
+                      minHeight: "3rem",
+                      marginLeft: theme.spacing(1),
                     }}
                   >
-                    <HorizontalFlexBox sx={{ width: "100%" }}>
-                      <Header
-                        title={"Tagging"}
-                        activeView={activeTagView}
-                        setActiveView={setActiveTagView}
-                        functions={taggingButtons.map(
-                          (button: any, index: number) => {
-                            return (
-                              <Button
-                                key={index}
-                                variant="text"
-                                onClick={() => {
-                                  setActiveTagView(button.viewName);
-                                }}
-                                disableElevation
-                                startIcon={button.icon}
-                                sx={{
-                                  borderRadius: "8px",
-                                  borderBottomLeftRadius: 0,
-                                  borderBottomRightRadius: 0,
-                                  borderBottom:
-                                    button.viewName === activeView
-                                      ? `1px solid ${theme.palette.primary.main}`
-                                      : "none",
-                                  marginBottom: "-1px",
-                                  marginLeft: theme.spacing(1),
-                                }}
-                              >
-                                {button.viewName}
-                              </Button>
-                            );
-                          }
-                        )}
-                        sx={{
-                          marginLeft: theme.spacing(3),
-                          marginRight: theme.spacing(3),
-                          marginTop: theme.spacing(3),
-                        }}
-                      />
-                    </HorizontalFlexBox>
-                    <HorizontalFlexBox sx={{ justifyContent: "center" }}>
-                      <ImageCard
-                        cardheight={"200px"}
-                        cardwidth={"400px"}
-                        imageheight={"200px"}
-                        imagewidth={"400px"}
-                        image={tag}
-                        alt={"fileArrowUploadGreen"}
-                        sx={{ boxShadow: "none", padding: 0 }}
-                      />
-                    </HorizontalFlexBox>
-                    <HorizontalFlexBox sx={{ padding: 0 }}>
-                      <VerticalFlexBox>
-                        <Typography
-                          variant="h6"
-                          paragraph
-                          align="center"
-                        >
-                          Welcome to the tagging page!
-                        </Typography>
-                        <Typography
-                          variant="body1"
-                          paragraph
-                          align="center"
-                        >
-                          You can select a tag from the select field or create a
-                          new one.
-                        </Typography>
-                      </VerticalFlexBox>
-                    </HorizontalFlexBox>
-                    <HorizontalFlexBox>
-                      {/* <Button
-                        variant="contained"
-                        component="label"
-                        color="primary"
-                        size="large"
-                        // startIcon={<FileOpenRounded />}
-                        sx={{
-                          borderRadius: "10px",
-                          color: theme.palette.secondary.main,
-                        }}
-                        disableElevation
-                      >
-                        <input
-                          hidden
-                          accept="csv"
-                          type="file"
-                          onChange={(event) => {
-                            handleUpload(event);
-                          }}
-                        />
-                        new Tag
-                      </Button> */}
-                      {/* <SelectList /> */}
-                      <TextField
-                        error={false}
-                        id="standard-error-helper-text"
-                        label="Give your tag a name"
-                        variant="standard"
-                        required
-                      />
-                    </HorizontalFlexBox>
-                  </Right>
+                    Import
+                  </Button>
+                  <Dialog
+                    open={dialogActive}
+                    maxWidth="md"
+                    scroll="body"
+                    onClose={() => {
+                      setDialogActive(false);
+                    }}
+                    // sx={{ borderRadius: "1rem !important" }}
+                    PaperProps={{
+                      style: { borderRadius: "1rem" },
+                    }}
+                  >
+                    <AuditDataHandler />
+                  </Dialog>
                   <Button
                     variant="text"
                     onClick={() => {}}
                     disableElevation
                     sx={{
-                      borderRadius: "8px",
+                      borderRadius: ".5rem",
                       borderBottomLeftRadius: 0,
                       borderBottomRightRadius: 0,
                       marginBottom: "-1px",
@@ -269,16 +198,18 @@ const CashFlow: NextPage<CashFlowProps> = ({ transactions, cashFlow }) => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async (context) => {
-    const transactionsRequest = await RequestHandler.GET("/Transaction/Bank");
-    const cashFlowRequest = await RequestHandler.GET(
+    const transactionsRequest = await RequestHandler.GET<Transaction>(
+      "/Transaction/Bank"
+    );
+    const cashFlowRequest = await RequestHandler.GET<CashFlow>(
       "/Transaction/Bank/CashFlow",
       { params: { filter: store.getState().globalFilter.dateFilter } }
     );
 
     return {
       props: {
-        transactions: transactionsRequest.data ? transactionsRequest.data : [],
-        cashFlow: cashFlowRequest.data ? cashFlowRequest.data : [],
+        transactions: transactionsRequest ? transactionsRequest : [],
+        cashFlow: cashFlowRequest ? cashFlowRequest : [],
       },
     };
   }

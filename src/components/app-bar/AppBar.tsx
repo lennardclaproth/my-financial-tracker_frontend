@@ -11,7 +11,7 @@ const AppBarComponent = () => {
     <AppBar
       position="fixed"
       sx={{
-        borderRadius: "16px",
+        borderRadius: ".5rem",
         minWidth: "250px",
         maxWidth: "350px",
         marginRight: "2rem",

@@ -19,7 +19,7 @@ function cardHeader() {
       imagewidth={"400px"}
       image={fileArrowUploadGreen}
       alt={"fileArrowUploadGreen"}
-      sx={{ boxShadow: "none", padding: 0 }}
+      sx={{ boxShadow: "none", padding: 0, margin: "auto" }}
     />
   );
 }
@@ -56,7 +56,8 @@ function cardFooter(handleUpload) {
       fullWidth
       startIcon={<OpenFileIcon />}
       sx={{
-        borderRadius: "10px",
+        borderRadius: ".5rem",
+        mb: 1,
         color: theme.palette.secondary.main,
       }}
       disableElevation
@@ -85,7 +86,7 @@ export default function SelectFile({
         header={cardHeader()}
         body={cardBody(selectedOption)}
         footer={cardFooter(handleUpload)}
-        sx={{ width: "450px" }}
+        sx={{ width: "450px", boxShadow: "none", padding: 0 }}
       />
     </VerticalFlexBox>
   );

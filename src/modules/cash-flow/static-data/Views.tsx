@@ -26,10 +26,12 @@ const overviewTabs = [
 
 const taggingButtons = [
   {
+    index: 1,
     viewName: "Tag",
-    icon: <TagIcon />,
+    icon: <TagIcon fontSize="inherit" />,
   },
   {
+    index: 2,
     viewName: "Transactions",
     icon: <TableIcon fontSize="inherit" />,
   },
